@@ -1,0 +1,74 @@
+mutation{
+  createCourse(input: {
+    courseName: "GraphQL crash course"
+    price: 199
+    stack: WEB
+    teachingAssists: [
+      {
+        firstName: "Rithesh"
+        lastName: "Rithu"
+        experience: 1
+      },
+      {
+        firstName: "Rith"
+        lastName: "David"
+        experience: 1
+      }
+    ]
+  }){
+    id,
+    courseName
+  }
+}
+
+
+//Output
+{
+  "data": {
+    "createCourse": {
+      "id": "GTqPCzqtbv5iH0FaBqpI1",
+      "courseName": "GraphQL crash course"
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+query{
+  getCourse(id: "GTqPCzqtbv5iH0FaBqpI1"){
+    id 
+    teachingAssists{
+      firstName
+      experience
+    }
+  }
+}
+
+//Output
+{
+  "data": {
+    "getCourse": {
+      "id": "GTqPCzqtbv5iH0FaBqpI1",
+      "teachingAssists": [
+        {
+          "firstName": "Rithesh",
+          "experience": 1
+        },
+        {
+          "firstName": "Rith",
+          "experience": 1
+        }
+      ]
+    }
+  }
+}
